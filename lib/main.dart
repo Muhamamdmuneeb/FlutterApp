@@ -14,13 +14,15 @@ class MyApp extends StatelessWidget{
         appBar: AppBar(
           title: Text("List View"),
         ),
-        body: ListView.builder(
+        body: ListView.separated(
+          //Row divided
           itemCount: listView.length,
           itemBuilder: (BuildContext context,int index){
             return ListTile(
               title: Text(listView[index],style: TextStyle(fontSize:16,color:Colors.grey[800]),),
             );//ListTile widget make a row
           },
+          separatorBuilder: (BuildContext context,int index)=>Divider(),//Separated builder show eacho content by dividing in row
         ),
 
       ),
