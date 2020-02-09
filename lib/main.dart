@@ -1,49 +1,36 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main()=>runApp(MyApp());
-
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
-        title: "My First App",
-        home: MyWidget()  
+      title: "My Second App",
+      home: Scaffold(
+        appBar:AppBar(
+          title: Text("My Second App"),
+          ),
+        body: Center(
+          child: MyWidget()
+        ),
+      ),
     );
   }
 }
-class MyWidget extends StatefulWidget{
-  @override
-  MyWidgetState createState() {
-    // TODO: implement createState
-    return MyWidgetState();
-  }
-}
-class MyWidgetState extends State<MyWidget>{
-  String  _text="Text Change";
-  onClick(){
-    setState(() {
 
-      _text="The Counter Started";
-    });
-  }
+class MyWidget extends  StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-        appBar:AppBar(
-          title: Text("My First App"),
-          ),
-          body: Center(
-            child: Text(_text),
-            ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: (){
-              onClick();
-            },
-            child: Icon(Icons.add),
-          ),
-        ) ;
+    return Column(children: <Widget>[
+      Container(
+        height:100.0,
+        width:100.0,
+        child:Image.asset("assets/img/logo.png")
+      ),
+      Text("The Facebook logo",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,),)
+    ],);
   }
 }
