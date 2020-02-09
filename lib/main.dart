@@ -1,36 +1,29 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 void main()=>runApp(MyApp());
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "My Second App",
-      home: Scaffold(
-        appBar:AppBar(
-          title: Text("My Second App"),
-          ),
-        body: Center(
-          child: MyWidget()
-        ),
-      ),
-    );
-  }
-}
 
-class MyWidget extends  StatelessWidget{
+class MyApp extends StatelessWidget{
+  List<String> listView=["Karachi","Lahore","Peshawar","Faslabad","Sakhar","Haripur","Mansehra"];//Make a list to view
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {//this is a build that used to show content
     // TODO: implement build
-    return Column(children: <Widget>[
-      Container(
-        height:100.0,
-        width:100.0,
-        child:Image.asset("assets/img/logo.png")
+    return MaterialApp(
+      title: "List View",
+      theme: ThemeData(fontFamily:"Roboto"),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("List View"),
+        ),
+        body: ListView.builder(
+          itemCount: listView.length,
+          itemBuilder: (BuildContext context,int index){
+            return ListTile(
+              title: Text(listView[index],style: TextStyle(fontSize:16,color:Colors.grey[800]),),
+            );//ListTile widget make a row
+          },
+        ),
+
       ),
-      Text("The Facebook logo",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,),)
-    ],);
+      );
   }
 }
