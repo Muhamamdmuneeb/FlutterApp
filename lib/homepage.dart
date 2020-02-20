@@ -6,28 +6,61 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+   
+  var num1=0.0;
+  var num2=0.0;
+  var sum=0.0;
+
+  final myController=TextEditingController();
+  final myController1=TextEditingController();
   Widget _text(){
     return Center(
-      child: Text(myController.text), 
+      
+      child: Text(sum.toString()), 
     );
   }
+  void doAdd(){
+    setState(() {
+      num1=double.parse(myController.text);
+      num2=double.parse(myController1.text);
+      sum=num1+num2;
+    });
+  }
+  void doSub(){
+    setState(() {
+      num1=double.parse(myController.text);
+      num2=double.parse(myController1.text);
+      sum=num1-num2;
+    });
+  }
+  void doMult(){
+    setState(() {
+      num1=double.parse(myController.text);
+      num2=double.parse(myController1.text);
+      sum=num1*num2;
+    });
+  }
+  void doDiv(){
+    setState(() {
+      num1=double.parse(myController.text);
+      num2=double.parse(myController1.text);
+      sum=(num1/num2);
+    });
+  }
   double size=150.0;
-  final myController=TextEditingController();
-  @override
-    void dispose(){
-      myController.dispose();
-      super.dispose();
-    }
+ 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
         appBar: AppBar(
           title: Center(
             child: Text("Calculator",style: TextStyle(
                 fontSize: 20.0
             ),), 
           ),
-          backgroundColor: Colors.teal,
+          backgroundColor: Colors.black87,
         ),
         body: Container(
          padding: const EdgeInsets.all(20.0),
@@ -36,34 +69,35 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
            
             children: <Widget>[
-              Center(
-                child:Container(
-                width: 150.0,
-                height: 150.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("assets/img/muneeb.JPG"),
-                    fit: BoxFit.fill,
-                  )
-                  ),
-              ) ,
-              ),
-              Center(
-                child: Text("Hi:I am web & Mobile App Developer"+myController.text,style:TextStyle(
-                  
-                  fontFamily:"Nunito Sans",
-                  color: Colors.red,
-                  fontSize: 20.0
-                  )), 
-              ),
+              // Center(
+              //   child:Container(
+              //   width: 150.0,
+              //   height: 150.0,
+              //   decoration: BoxDecoration(
+              //     shape: BoxShape.circle,
+              //     image: DecorationImage(
+              //       image: AssetImage("assets/img/muneeb.JPG"),
+              //       fit: BoxFit.fill,
+              //     )
+              //     ),
+              // ) ,
+              // ),
               Center(
                 child:Text("Calculator App",style:TextStyle(
-                  fontFamily:"Nunito Sans",
+                  fontFamily:"Roboto",
                   color: Colors.red,
-                  fontSize: 15.0
+                  fontSize: 35.0
                   ))
               ),
+              Center(
+                child: Text("Output : "+sum.toString(),style:TextStyle(
+                  
+                  fontFamily:"Roboto",
+                  color: Colors.red,
+                  fontSize: 30.0
+                  )), 
+              ),
+              
               TextField(
                 controller: myController,
                 keyboardType: TextInputType.number,
@@ -79,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                 ), 
               ),
               TextField(
-                
+                controller: myController1,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelStyle: TextStyle(
@@ -90,14 +124,49 @@ class _HomePageState extends State<HomePage> {
 
                 ), 
               ),
-              Center(
-                child: _text(),
+              Padding(
+                padding: const EdgeInsets.only(top:10.0)
               ),
-              Center(
-                  child: RaisedButton(
-                      child:Text("Change"),
-                      onPressed: _text,
-                  ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    RaisedButton(
+                      child: Text("+",style: TextStyle(
+                        fontSize: 20.0
+                      ),
+                      ),
+                      onPressed:doAdd,
+                      color: Colors.teal,
+                      textColor: Colors.white,
+                      ),
+                      RaisedButton(
+                      child: Text("-",style: TextStyle(
+                        fontSize: 20.0
+                      ),
+                      ),
+                      onPressed:doSub,
+                      color: Colors.teal,
+                      textColor: Colors.white,
+                      ),
+                      RaisedButton(
+                      child: Text("*",style: TextStyle(
+                        fontSize: 20.0
+                      ),
+                      ),
+                      onPressed: doMult,
+                      color: Colors.teal,
+                      textColor: Colors.white,
+                      ),
+                      RaisedButton(
+                      child: Text("/",style: TextStyle(
+                        fontSize: 20.0
+                      ),
+                      ),
+                      onPressed: doDiv,
+                      color: Colors.teal,
+                      textColor: Colors.white,
+                      ),
+                  ],
               )
               
             ],
