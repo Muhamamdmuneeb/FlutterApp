@@ -62,6 +62,64 @@ class _HomePageState extends State<HomePage> {
           ),
           backgroundColor: Colors.black87,
         ),
+        drawer: Drawer(
+          
+          child: ListView(
+          
+              children: <Widget>[
+                
+                UserAccountsDrawerHeader(
+                  
+                    accountName: Text("Muhammad Muneeb"),
+                    accountEmail: Text("muhammadmuneeb107@gmail.com"),
+                    arrowColor: Colors.red,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      ListTile(
+                        
+                        title: Text("Home",style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white70
+                         ),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_right
+                          ),
+                      ),
+                      Divider(),
+                      ListTile(
+                          title: Text("List",style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white70
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_right
+                            ),
+                      )
+                    ],
+                  ), 
+                ),
+                ]
+                  
+                  // ListTile(
+                  //  title: Text("Pagetwo"),
+                  //  trailing: Row(
+                  //    children: <Widget>[
+                  //      Icon(Icons.add_shopping_cart),
+                  //      Icon(Icons.add_to_photos)
+                  //    ],
+                  //  ), 
+                  // )
+              
+          )
+              
+              
+        ),
         body: Container(
          padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -128,6 +186,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(top:10.0)
               ),
               Row(
+                mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     RaisedButton(

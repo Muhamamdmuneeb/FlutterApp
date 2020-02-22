@@ -9,7 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: "Calculator App",
         theme: ThemeData(
-          fontFamily: "Roboto" 
+          fontFamily: "Roboto",
+          primarySwatch: Colors.teal,
+          brightness: Brightness.dark
         ),
         home: HomePage(),
     );
