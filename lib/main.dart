@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'calculator.dart';
 import 'homepage.dart';
+
 void main()=>runApp(MyApp());
 
 
@@ -10,10 +12,13 @@ class MyApp extends StatelessWidget {
         title: "Calculator App",
         theme: ThemeData(
           fontFamily: "Roboto",
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.grey,
           brightness: Brightness.dark
         ),
-        home: HomePage(),
+        home: Home(),
+        routes: <String , WidgetBuilder>{
+          "/calculator":(BuildContext context)=>Calculator(),
+        },
     );
   }
 }
