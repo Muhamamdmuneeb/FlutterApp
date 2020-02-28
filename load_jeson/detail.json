@@ -1,0 +1,30 @@
+[
+    {
+        "name":"Muhammad Muneeb",
+        "age":"21",
+        "status":"Active",
+        "job":"As Senior Programmer",
+        "phone_number":"1231312312"
+    },
+    {
+        "name":"Arslan Arshad",
+        "age":"21",
+        "status":"Active",
+        "job":"As Senior Programmer",
+        "phone_number":"1231312312"
+    },
+    {
+        "name":"Muhammad Naveed",
+        "age":"21",
+        "status":"Active",
+        "job":"As Senior Programmer",
+        "phone_number":"1231312312"
+    },
+    {
+        "name":"Muhammad Omar",
+        "age":"21",
+        "status":"Active",
+        "job":"As Senior Programmer",
+        "phone_number":"1231312312"
+    }
+]
